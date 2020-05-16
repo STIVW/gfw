@@ -1,7 +1,7 @@
 version: "2"           ###版本不同，根据版本一般写入2或者3.运行报错显示版本不对时，将2改为3
 services:
         db:
-                image: db
+                image: mariadb
                 volumes:
                         - /mariadb:/var/lib/mysql
                 ports:
@@ -14,7 +14,7 @@ services:
                
                
         wordpress:
-                image: wp
+                image: wordpress
                 volumes:
                         - /wp/ssl:/ssl                  ###映射ssl文件，以备安装ssl证书。
                         - /wp/test/html:/var/www/html   ###worldpress主配置文件。
