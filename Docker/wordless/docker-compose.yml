@@ -1,4 +1,4 @@
-version: "3"           ###版本不同，根据版本写入2或者3
+version: "2"           ###版本不同，根据版本一般写入2或者3.运行报错显示版本不对时，将2改为3
 services:
         db:
                 image: db
@@ -7,7 +7,7 @@ services:
                 ports:
                         - "3306:3306"
                 environment:
-                        MYSQL_ROOT_PASSWORD: "设置密码"  ###设置数据库root密码。（下面需要填写相同的密码）
+                        MYSQL_ROOT_PASSWORD: "设置密码"  ###设置数据库root密码。（例如: "123456"包含引号）
                 restart: always
                 
                 container_name: db
@@ -23,7 +23,7 @@ services:
                         - "80:80"
                 environment:
                         WORDPRESS_DB_HOST: IP:3306      ###主机ip地址。（填写公网地址时需要添加安全组规则，打开3306端口）
-                        WORDPRESS_DB_PASSWORD: 869862   ###数据库密码 。（上面设置的密码）
+                        WORDPRESS_DB_PASSWORD: 输入数据库密码   ###数据库密码 。（上面设置的密码）
                 restart: always
                 container_name: wp
 
