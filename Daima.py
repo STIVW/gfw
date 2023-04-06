@@ -11,6 +11,8 @@ from tensorflow.keras import layers
 # 将像素值归一化到[0,1]范围内，并将图片转换为浮点数类型
 x_train = x_train.astype("float32") / 255.0
 x_test = x_test.astype("float32") / 255.0
+x_train = np.expand_dims(x_train, -1)
+x_test = np.expand_dims(x_test, -1)
 
 # 定义对比损失函数
 class ContrastiveLoss(tf.keras.losses.Loss):
